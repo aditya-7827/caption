@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Caption App</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="glass">
+
+    <h1 class="logo">✨ AI Caption</h1>
+
+    <!-- REGISTER -->
+    <div id="registerBox" class="formBox active">
+      <h2>Create Account</h2>
+
+      <input type="text" id="regUsername" placeholder="Username"/>
+      <input type="password" id="regPassword" placeholder="Password"/>
+
+      <button onclick="register()">Register</button>
+
+      <p class="switch">
+        Already have account?
+        <span onclick="showLogin()">Login</span>
+      </p>
+
+      <p id="regMsg" class="msg"></p>
+    </div>
+
+
+    <!-- LOGIN -->
+    <div id="loginBox" class="formBox">
+      <h2>Welcome Back</h2>
+
+      <input type="text" id="loginUsername" placeholder="Username"/>
+      <input type="password" id="loginPassword" placeholder="Password"/>
+
+      <button onclick="login()">Login</button>
+
+      <p class="switch">
+        Don't have account?
+        <span onclick="showRegister()">Register</span>
+      </p>
+
+      <p id="loginMsg" class="msg"></p>
+    </div>
+
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="formBox">
+          
+      <label class="uploadCard">
+        <input type="file" id="imageFile" accept="image/*" hidden />
+        
+        <div class="previewWrapper">
+          <img id="preview" class="preview"/>
+          <span id="uploadText">Click to upload image</span>
+        </div>
+      </label>
+    
+      <button class="primaryBtn" onclick="uploadPost()">
+        Generate Caption
+      </button>
+    
+      <p id="caption" class="caption"></p>
+    
+      <button class="logout" onclick="logout()">Logout</button>
+    
+    </div>
+    
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
