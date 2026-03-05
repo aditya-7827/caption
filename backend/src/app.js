@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/auth.routes');
 const postRoutes = require('./routes/post.routes');
 
+const path = require('path');
+
 const app = express();   // ⭐ sabse pehle app create
 
 // ---------- MIDDLEWARES ----------
@@ -20,10 +22,15 @@ app.use(cors({
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '../public'))); // serve uploaded images
 
 // ---------- ROUTES ----------
 
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
 module.exports = app;
