@@ -29,9 +29,4 @@ app.use(express.static(path.join(__dirname, '../public'))); // serve uploaded im
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
 
-// ⭐ frontend fallback route
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
-
 module.exports = app;
