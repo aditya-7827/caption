@@ -13,7 +13,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  background: linear-gradient(-45deg, #667eea, #764ba2, #407f8e, #1d859f);
+  background: linear-gradient(-45deg, #768ae0, #9768c7, #519cae, #2c9cb8);
   background-size:400% 400%;
   animation: gradientBG 12s ease infinite;
 }
@@ -26,18 +26,18 @@ body{
 
 .container{
   width:100%;
-  padding:20px;
+  padding:80px;
   display:flex;
   justify-content:center;
 }
 
 .glass{
-  width:420px;
+  width:500px;
   max-width:100%;
   padding:40px 30px;
   border-radius:20px;
   backdrop-filter: blur(20px);
-  background: rgba(255,255,255,0.1);
+  background: linear-gradient(-45deg, #667eea, #764ba2, #407f8e, #1d859f);
   border:1px solid rgba(255,255,255,0.2);
   box-shadow:0 10px 30px rgba(0,0,0,0.2);
   animation: fadeIn 0.8s ease;
@@ -148,7 +148,7 @@ button:hover{
 .uploadCard{
   border:2px dashed rgba(255,255,255,0.4);
   border-radius:15px;
-  padding:50px;
+  padding: 50px 20px;
   text-align:center;
   cursor:pointer;
   transition:0.3s;

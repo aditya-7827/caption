@@ -25,29 +25,49 @@ const generateBtn = document.querySelector(".primaryBtn");
 
 
 // =====================
+// CLEAR ALL INPUTS
+// =====================
+function clearAllInputs() {
+
+  // Auth Inputs
+  regUsername.value = "";
+  regPassword.value = "";
+  loginUsername.value = "";
+  loginPassword.value = "";
+
+  // Image + Caption
+  imageFile.value = "";
+  preview.src = "";
+  preview.style.display = "none";
+  uploadText.style.display = "block";
+  caption.innerText = "";
+}
+
+
+// =====================
 // Show Sections
 // =====================
 function showRegister() {
+  clearAllInputs();
   registerBox.classList.add("active");
   loginBox.classList.remove("active");
   dashboard.classList.remove("active");
-
   clearMessages();
 }
 
 function showLogin() {
+  clearAllInputs();
   loginBox.classList.add("active");
   registerBox.classList.remove("active");
   dashboard.classList.remove("active");
-
   clearMessages();
 }
 
 function showDashboard() {
+  clearAllInputs();
   registerBox.classList.remove("active");
   loginBox.classList.remove("active");
   dashboard.classList.add("active");
-
   clearMessages();
 }
 
@@ -58,9 +78,12 @@ function clearMessages() {
 
 
 // =====================
-// Auto Login
+// Auto Login Check
 // =====================
 window.onload = () => {
+
+  clearAllInputs();
+
   const token = localStorage.getItem("token");
 
   if (token) {
@@ -74,7 +97,9 @@ window.onload = () => {
 // =====================
 // REGISTER
 // =====================
-async function register() {
+async function register(event) {
+
+  if (event) event.preventDefault();
 
   const username = regUsername.value.trim();
   const password = regPassword.value.trim();
@@ -100,8 +125,11 @@ async function register() {
       return;
     }
 
-    localStorage.setItem("token", data.token);
-    showDashboard();
+    regMsg.innerText = "Registration successful. Please login.";
+    
+    setTimeout(() => {
+      showLogin();
+    }, 1000);
 
   } catch (err) {
     regMsg.innerText = "Server error";
@@ -112,7 +140,9 @@ async function register() {
 // =====================
 // LOGIN
 // =====================
-async function login() {
+async function login(event) {
+
+  if (event) event.preventDefault();
 
   const username = loginUsername.value.trim();
   const password = loginPassword.value.trim();
@@ -128,7 +158,7 @@ async function login() {
       headers: {
         "Content-Type": "application/json"
       },
-    body: JSON.stringify({ username, password })
+      body: JSON.stringify({ username, password })
     });
 
     const data = await res.json();
@@ -138,7 +168,9 @@ async function login() {
       return;
     }
 
+    // TOKEN SAVE
     localStorage.setItem("token", data.token);
+
     showDashboard();
 
   } catch (err) {
@@ -158,7 +190,6 @@ imageFile.addEventListener("change", () => {
   preview.src = URL.createObjectURL(file);
   preview.style.display = "block";
   uploadText.style.display = "none";
-
   caption.innerText = "";
 });
 
@@ -166,7 +197,9 @@ imageFile.addEventListener("change", () => {
 // =====================
 // UPLOAD POST
 // =====================
-async function uploadPost() {
+async function uploadPost(event) {
+
+  if (event) event.preventDefault();
 
   const file = imageFile.files[0];
 
@@ -188,7 +221,6 @@ async function uploadPost() {
 
   try {
 
-    // Loading state
     generateBtn.innerText = "Generating...";
     generateBtn.disabled = true;
 
@@ -207,11 +239,8 @@ async function uploadPost() {
       return;
     }
 
-    // Show returned image
     preview.src = data.post.image;
     preview.style.display = "block";
-
-    // Show caption
     caption.innerText = data.post.caption;
 
   } catch (err) {
@@ -231,11 +260,7 @@ function logout() {
 
   localStorage.removeItem("token");
 
-  // reset UI
-  preview.src = "";
-  preview.style.display = "none";
-  uploadText.style.display = "block";
-  caption.innerText = "";
+  clearAllInputs();
 
   showLogin();
 }

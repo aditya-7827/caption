@@ -9,19 +9,32 @@
 <body>
 
 <div class="container">
-
   <div class="glass">
 
     <h1 class="logo">✨ AI Caption</h1>
 
-    <!-- REGISTER -->
+    <!-- ================= REGISTER ================= -->
     <div id="registerBox" class="formBox active">
       <h2>Create Account</h2>
 
-      <input type="text" id="regUsername" placeholder="Username"/>
-      <input type="password" id="regPassword" placeholder="Password"/>
+      <input 
+        type="text" 
+        id="regUsername" 
+        placeholder="Username" 
+        autocomplete="off"
+      />
 
-      <button onclick="register()">Register</button>
+      <input 
+        type="password" 
+        id="regPassword" 
+        placeholder="Password"
+        autocomplete="off"
+      />
+
+      <!-- type="button" important -->
+      <button type="button" onclick="register()">
+        Register
+      </button>
 
       <p class="switch">
         Already have account?
@@ -32,14 +45,27 @@
     </div>
 
 
-    <!-- LOGIN -->
+    <!-- ================= LOGIN ================= -->
     <div id="loginBox" class="formBox">
       <h2>Welcome Back</h2>
 
-      <input type="text" id="loginUsername" placeholder="Username"/>
-      <input type="password" id="loginPassword" placeholder="Password"/>
+      <input 
+        type="text" 
+        id="loginUsername" 
+        placeholder="Username"
+        autocomplete="off"
+      />
 
-      <button onclick="login()">Login</button>
+      <input 
+        type="password" 
+        id="loginPassword" 
+        placeholder="Password"
+        autocomplete="off"
+      />
+
+      <button type="button" onclick="login()">
+        Login
+      </button>
 
       <p class="switch">
         Don't have account?
@@ -50,31 +76,46 @@
     </div>
 
 
-    <!-- DASHBOARD -->
+    <!-- ================= DASHBOARD ================= -->
     <div id="dashboard" class="formBox">
-          
+
       <label class="uploadCard">
-        <input type="file" id="imageFile" accept="image/*" hidden />
+        <input 
+          type="file" 
+          id="imageFile" 
+          accept="image/*" 
+          hidden 
+        />
         
         <div class="previewWrapper">
-          <img id="preview" class="preview"/>
+          <img 
+            id="preview" 
+            class="preview" 
+            style="display:none;" 
+          />
           <span id="uploadText">Click to upload image</span>
         </div>
       </label>
-    
-      <button class="primaryBtn" onclick="uploadPost()">
+
+      <button 
+        type="button" 
+        class="primaryBtn" 
+        onclick="uploadPost()">
         Generate Caption
       </button>
-    
+
       <p id="caption" class="caption"></p>
-    
-      <button class="logout" onclick="logout()">Logout</button>
-    
+
+      <button 
+        type="button" 
+        class="logout" 
+        onclick="logout()">
+        Logout
+      </button>
+
     </div>
-    
 
   </div>
-
 </div>
 
 <script src="script.js"></script>

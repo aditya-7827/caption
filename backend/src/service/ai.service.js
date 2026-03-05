@@ -1,7 +1,7 @@
 const { GoogleGenAI } = require("@google/genai");
 
 const ai = new GoogleGenAI({
-  apiKey: "AIzaSyA9plBQolv24OCYfLD2qWm5OhHRzJYUPfs",
+  apiKey: "AIzaSyAzVOhf25ePHWttWaInbFOll8KGU_g8Kq0",
 });
 
 async function generateCaption(base64ImageFile) {
