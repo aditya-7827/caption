@@ -13,7 +13,7 @@ const app = express();   // ⭐ sabse pehle app create
 
 // CORS configuration
 app.use(cors({
-  origin: "http://127.0.0.1:5500", // ✅ frontend ka address (without /index.html)
+  origin: "*", // ✅ frontend ka address (without /index.html)
   credentials: true               // ✅ allow cookies
 }));
 
