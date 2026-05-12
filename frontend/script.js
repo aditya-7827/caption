@@ -1,4 +1,4 @@
-const BASE_URL = "https://caption-backend-33ra.onrender.com/";// =====================
+const BASE_URL = "https://caption-backend-33ra.onrender.com";// =====================
 // Sections
 // =====================
 const registerBox = document.getElementById("registerBox");
