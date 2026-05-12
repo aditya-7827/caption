@@ -1,6 +1,4 @@
-const BASE_URL = "https://caption-vyxb.onrender.com";
-
-// =====================
+const BASE_URL = "http://localhost:3000";// =====================
 // Sections
 // =====================
 const registerBox = document.getElementById("registerBox");

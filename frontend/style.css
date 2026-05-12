@@ -16,6 +16,7 @@ body{
   background: linear-gradient(-45deg, #768ae0, #9768c7, #519cae, #2c9cb8);
   background-size:400% 400%;
   animation: gradientBG 12s ease infinite;
+  padding:20px;
 }
 
 @keyframes gradientBG{
@@ -24,16 +25,21 @@ body{
   100%{background-position:0% 50%}
 }
 
+/* Container */
+
 .container{
   width:100%;
-  padding:80px;
+  max-width:1100px;
   display:flex;
   justify-content:center;
+  align-items:center;
 }
 
+/* Glass Card */
+
 .glass{
-  width:500px;
-  max-width:100%;
+  width:100%;
+  max-width:500px;
   padding:40px 30px;
   border-radius:20px;
   backdrop-filter: blur(20px);
@@ -66,22 +72,10 @@ body{
   display:none;
   flex-direction:column;
   gap:15px;
-  animation: slide 0.4s ease;
 }
 
 .formBox.active{
   display:flex;
-}
-
-@keyframes slide{
-  from{
-    opacity:0;
-    transform:translateX(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateX(0);
-  }
 }
 
 h2{
@@ -90,7 +84,10 @@ h2{
   margin-bottom:10px;
 }
 
+/* Inputs */
+
 input{
+  width:100%;
   padding:12px 14px;
   border-radius:10px;
   border:none;
@@ -109,7 +106,10 @@ input:focus{
   background:rgba(255,255,255,0.25);
 }
 
+/* Buttons */
+
 button{
+  width:100%;
   padding:12px;
   border:none;
   border-radius:10px;
@@ -143,12 +143,12 @@ button:hover{
   font-size:13px;
 }
 
-/* Dashboard */
+/* Upload Card */
 
 .uploadCard{
   border:2px dashed rgba(255,255,255,0.4);
   border-radius:15px;
-  padding: 50px 20px;
+  padding:40px 20px;
   text-align:center;
   cursor:pointer;
   transition:0.3s;
@@ -167,7 +167,8 @@ button:hover{
 }
 
 .preview{
-  max-width:100%;
+  width:100%;
+  max-width:300px;
   border-radius:12px;
   display:none;
 }
@@ -195,20 +196,68 @@ button:hover{
   background: linear-gradient(135deg, #ff512f, #dd2476);
 }
 
-/* Responsive */
+/* ========================= */
+/* Tablet */
+/* ========================= */
+
+@media(max-width:768px){
+
+  .glass{
+    padding:30px 25px;
+  }
+
+  h2{
+    font-size:20px;
+  }
+
+}
+
+/* ========================= */
+/* Mobile */
+/* ========================= */
 
 @media(max-width:480px){
 
+  body{
+    padding:15px;
+  }
+
   .glass{
-    padding:30px 20px;
+    padding:25px 18px;
+  }
+
+  h2{
+    font-size:18px;
   }
 
   input{
     font-size:13px;
+    padding:10px;
   }
 
   button{
     font-size:14px;
+    padding:10px;
+  }
+
+  .uploadCard{
+    padding:30px 15px;
+  }
+
+}
+
+/* ========================= */
+/* Small Mobile */
+/* ========================= */
+
+@media(max-width:350px){
+
+  h2{
+    font-size:16px;
+  }
+
+  .glass{
+    padding:20px 15px;
   }
 
 }

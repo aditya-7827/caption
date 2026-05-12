@@ -5,16 +5,17 @@ const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/auth.routes');
 const postRoutes = require('./routes/post.routes');
 
-const path = require('path');
-
 const app = express();   // ⭐ sabse pehle app create
 
 // ---------- MIDDLEWARES ----------
 
 // CORS configuration
 app.use(cors({
-  origin: "*", // ✅ frontend ka address (without /index.html)
-  credentials: true               // ✅ allow cookies
+  origin: [
+    "http://localhost:5500",
+    "http://127.0.0.1:5500"
+  ],
+  credentials: true
 }));
 
 
@@ -22,7 +23,6 @@ app.use(cors({
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../public'))); // serve uploaded images
 
 // ---------- ROUTES ----------
 
