@@ -1,4 +1,4 @@
-const BASE_URL = "https://caption-backend-33ra.onrender.com";// =====================
+const BASE_URL = "http://localhost:3000";// =====================
 // Sections
 // =====================
 const registerBox = document.getElementById("registerBox");
@@ -222,7 +222,7 @@ async function uploadPost(event) {
     generateBtn.innerText = "Generating...";
     generateBtn.disabled = true;
 
-    const res = await fetch(`${BASE_URL}/api/posts/`, {
+    const res = await fetch(`${BASE_URL}/api/posts`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`
